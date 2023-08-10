@@ -1,7 +1,4 @@
-# kubernetes
-- 환경
-  - Windows + Multipass
-    
+
 ## Minikube 
 ### Provisioning
 - 설치 최소 사양 : cpu 2, memory 2GB, disk 20GB
