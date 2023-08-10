@@ -109,4 +109,23 @@ minikube start --network-plugin=cni --cni=bridge --container-runtime=containerd 
 ![image](https://github.com/clabi-lab/kubernetes/assets/138098979/e3d28486-4c32-41ac-bd4a-d002972e894f)
 
 
+##### -dashboard
+```
+multipass exec minikube -- /bin/bash -c "minikube dashboard"
+```
+![image](https://github.com/clabi-lab/kubernetes/assets/138098979/6fb39b24-fdab-4418-a28a-5572f37ecaa2)
+
+※ 외부(local host) 에서 minikube의 dashboard 로 접근하기 위해서는 proxy 설정이 필요
+```
+multipass exec minikube -- /bin/bash -c "kubectl proxy --address='0.0.0.0' --disable-filter=true
+```
+![image](https://github.com/clabi-lab/kubernetes/assets/138098979/f31764d9-532d-4fea-ab09-8832cd2f1faf)
+
+- 브라우저 접속
+
+![image](https://github.com/clabi-lab/kubernetes/assets/138098979/6ec7bdf5-9769-49e4-9311-9d50ddce34b3)
+
+
+
+
 
