@@ -79,5 +79,14 @@ ncp-iam-authenticator create-kubeconfig --region <region-code> --clusterUuid <cl
 
 ![image](https://github.com/clabi-lab/kubernetes/assets/138098979/bced3ba7-41f7-44a4-a88f-fbb5bbae8160)
 
+##### - 모니터링
+- 노드 모니터링
+![image](https://github.com/clabi-lab/kubernetes/assets/138098979/7f011432-5c18-4362-af8a-f37183c6fbad)
+
+- 컨테이너 모니터링
+![image](https://github.com/clabi-lab/kubernetes/assets/138098979/bbc9a717-4388-433b-8125-6a90fb9f7c34)
+
+- k8s대시보드
+![image](https://github.com/clabi-lab/kubernetes/assets/138098979/5ba47eda-4740-49c8-b5f7-2014979405e7)
 
 
