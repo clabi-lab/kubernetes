@@ -66,9 +66,9 @@ ncp-iam-authenticator help
 ```
 ncp-iam-authenticator create-kubeconfig --region <region-code> --clusterUuid <cluster-uuid> --output kuecondif.yaml
 ```
-※ clusterUuid는 NKS 콘솔 화면에서 cluster name옆에 확인 가능하다
-※ region은 KR-1, KR-2와 같이 '-1'이나 '-2'가 붙지 않는다
-※ --debug 옵션을 주어 조금 더 추가적인 정보를 확인할 수 있다
+  - clusterUuid는 NKS 콘솔 화면에서 cluster name옆에 확인 가능하다
+  - region은 KR-1, KR-2와 같이 '-1'이나 '-2'가 붙지 않는다
+  - --debug 옵션을 주어 조금 더 추가적인 정보를 확인할 수 있다
 
 ![image](https://github.com/clabi-lab/kubernetes/assets/138098979/705172b7-447a-4b1b-9628-cd3fe3e6e42d)
 
