@@ -82,6 +82,9 @@ sudo systemctl enable --now cri-docker.socket
 sudo service cri-docker status
 ```
 
+※  cri-docker 의 서비스가 active 상태가 아닌 경우 restart service를 통해 재시작을 해준다
+
+
 ##### - kubeadm 설치
 ```
 sudo apt update
