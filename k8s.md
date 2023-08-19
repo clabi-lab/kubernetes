@@ -99,7 +99,7 @@ sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 ```
 
 
-##### - kubeadm init
+##### - kubeadm init (only for master node)
 ```
 sudo kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock --pod-network-cidr=10.244.0.0/16
 ```
@@ -126,10 +126,16 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 172.21.171.139:6443 --token 450a08.elw3p2dt52xgdqjm \
+kubeadm join <master node ip>:6443 --token 450a08.elw3p2dt52xgdqjm \
         --discovery-token-ca-cert-hash sha256:92e6fc712ac083694994c3f78ed63fc3bbd08265d6591fdbb4ff230669bc03e7
 ```
 
+##### - kubeadm join (for worker nodes)
+```
+sudo kubeadm join <master node ip>:6443  --cri-socket unix:///var/run/cri-dockerd.sock --token xxx --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxx
+```
 
+※ --cri-socket 옵션은 2개 이상의 container 설정이 있는 경우 사전 정의할 것을 요구하는 경고가 있기 때문에 사용한다
+※ master node의 설치는 kubeadm init 까지를 진행하고 worker node는 위의 모든 과정과 kubeadm init을 제외하고 join을 포함하는 과정이다
 
 
