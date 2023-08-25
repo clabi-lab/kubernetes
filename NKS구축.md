@@ -23,11 +23,12 @@ routetable 생성 기존라우트 테이블을 이용할 경우 생략
 쿠버네티스 서브넷이 들어있는 라우트 테이블에서 natgw를 추가 
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/33662c97-5691-47e9-a9d0-08652acae5b0)
 
-쿠버네티스 제어 (로컬 시)
-- 마이크로소프트 스토어에서 ubuntu LTS를 설치<br>
+쿠버네티스 제어 (로컬 제어시 만 베스천에서 구성시 생략)
+- 마이크로소프트 스토어에서 ubuntu LTS를 다운로드, 설치 및 열기<br>
 
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/6c6cd8ed-2fa6-4b06-93dd-93ec828b673b)
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/697097fc-f9b2-4183-a3e0-83ff2148beb5)
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/b0cb453c-e4ab-48cc-b7cd-dad3db692351)
 
 
 
