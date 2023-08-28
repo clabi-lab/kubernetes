@@ -74,6 +74,23 @@ sudo docker run hello-world
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/a917d86f-2eaf-49d5-8850-cbe5166b9ef6)
 
 
+#### 도커 로그인 
+```
+docker login -u <access-key-id> <registry-name>.<region-code>.ncr.ntruss.com
+Password: <secret-key>
+```
+Login Succeeded
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/2ff62835-590a-4aab-bb74-f228db237e84)
+
+
+#### KUBE Secret Repository 연결
+```
+kubectl --kubeconfig $KUBE_CONFIG create secret docker-registry regcred --docker-server=<registry-end-point> --docker-username=<access-key-id> --docker-password=<secret-key> --docker-email=<your-email>
+```
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/35561678-c2af-4ea6-a11c-f6ca42bcc350)
+
+
+
 
 
 
