@@ -90,6 +90,18 @@ kubectl --kubeconfig $KUBE_CONFIG create secret docker-registry regcred --docker
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/35561678-c2af-4ea6-a11c-f6ca42bcc350)
 
 
+##동작 테스트
+```
+git clone https://github.com/clabi-lab/hello-clabi.git
+cd hello-clabi
+docker build -t <registry-end-point>/hello-clabi:1.0 .
+docker push <registry-end-point>/hello-clabi:1.0
+docker pull <registry-end-point>/hello-clabi:1.0
+```
+
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/5dc49e99-4458-4a61-8133-e47ee29a9454)
+
+
 
 
 
