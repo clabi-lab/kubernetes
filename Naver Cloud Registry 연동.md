@@ -50,17 +50,29 @@ sudo apt-get update
 
 ##### 최신 버전 설치 시
 ```
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable docker
+sudo systemctl enable containerd
+sudo systemctl start docker
+sudo systemctl start containerd
 ```
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/b677de03-1bc4-4e25-b522-70509759c690)
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/d194e09f-1f4e-4c08-a0bd-a9500d453e4d)
 
+#### 도커 그룹 설정
+```
+sudo groupadd docker
+sudo usermod -aG docker ${USER}
+sudo systemctl restart docker
+```
+
+
 #### 도커 실행 및 동작 확인
 ```
-$ sudo service docker start
-$ sudo docker run hello-world
+sudo docker run hello-world
 ```
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/a917d86f-2eaf-49d5-8850-cbe5166b9ef6)
+
 
 
 
