@@ -34,6 +34,18 @@ routetable 생성 기존라우트 테이블을 이용할 경우 생략
 설치 완료 후 계정 몇 비밀번호를 생성 후 저장
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/29810583-3b07-4d20-8e89-25741f4fd629)
 
+ncp-iam-authenticator 설치<br>
+curl -o ncp-iam-authenticator -L https://github.com/NaverCloudPlatform/ncp-iam-authenticator/releases/latest/download/ncp-iam-authenticator_linux_amd64<br>
+chmod +x ./ncp-iam-authenticator<br>
+mkdir -p $HOME/bin && cp ./ncp-iam-authenticator $HOME/bin/ncp-iam-authenticator && export PATH=$PATH:$HOME/bin<br>
+echo 'export PATH=$PATH:$HOME/bin' >> ~/.profile
+
+API 키 가져오기<br>
+포털화면에서, 마이페이지, 계정관리, 인증키 관리 에서 API 키를 생성하거나 기존 키 활용
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/dd520c7d-8611-466d-88b4-e6e808e74937)
+
+
+
 
 
 
