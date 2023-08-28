@@ -25,6 +25,7 @@ routetable 생성 기존라우트 테이블을 이용할 경우 생략
 
 쿠버네티스 제어 (로컬 제어시 만 베스천에서 구성시 생략)
 - 마이크로소프트 스토어에서 ubuntu LTS를 다운로드, 설치 및 열기<br>
+- 재설치간 오류가 발생할시 cmd > wsl --unregister Ubuntu-20.04 와 같이 unregister 명령으로 WSL 설정 삭제 후 다시 설치 진
 
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/6c6cd8ed-2fa6-4b06-93dd-93ec828b673b)
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/697097fc-f9b2-4183-a3e0-83ff2148beb5)
@@ -40,9 +41,19 @@ chmod +x ./ncp-iam-authenticator<br>
 mkdir -p $HOME/bin && cp ./ncp-iam-authenticator $HOME/bin/ncp-iam-authenticator && export PATH=$PATH:$HOME/bin<br>
 echo 'export PATH=$PATH:$HOME/bin' >> ~/.profile
 
+kubectl 클라이언트 설치<br>
+sudo apt-get update<br>
+# apt-transport-https may be a dummy package; if so, you can skip that package<br>
+sudo apt-get install -y apt-transport-https ca-certificates curl<br>
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --yes --dearmor -o /usr/share/keyrings/kubernetes-archive-keyring.gpg<br>
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y kubectl
+
 API 키 가져오기<br>
 포털화면에서, 마이페이지, 계정관리, 인증키 관리 에서 API 키를 생성하거나 기존 키 활용
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/dd520c7d-8611-466d-88b4-e6e808e74937)
+
 
 
 
