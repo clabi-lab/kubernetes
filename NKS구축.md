@@ -29,6 +29,12 @@ routetable 생성 기존라우트 테이블을 이용할 경우 생략
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/6c6cd8ed-2fa6-4b06-93dd-93ec828b673b)
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/697097fc-f9b2-4183-a3e0-83ff2148beb5)
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/b0cb453c-e4ab-48cc-b7cd-dad3db692351)
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/38e11f06-0dea-4e2d-8480-e48b3cb33507)
+
+설치 완료 후 계정 몇 비밀번호를 생성 후 저장
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/29810583-3b07-4d20-8e89-25741f4fd629)
+
+
 
 
 
