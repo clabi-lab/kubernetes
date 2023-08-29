@@ -105,6 +105,12 @@ kubectl --kubeconfig $KUBE_CONFIG get namespaces
 ```
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/191cc770-9e1c-4f7d-96b0-b4e50fa75bdb)
 
+### 명령어 단축 
+```
+cp kubeconfig.yaml .kube/config
+```
+이렇게 하면 --kubeconfig $KUBE_CONFIG를 생략 할 수 있다.
+
 
 
 
