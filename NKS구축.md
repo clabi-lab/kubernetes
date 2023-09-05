@@ -61,7 +61,7 @@ sudo apt-get install -y kubectl
 #### 포털화면에서, 마이페이지, 계정관리, 인증키 관리 에서 API 키를 생성하거나 기존 키 활용
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/dd520c7d-8611-466d-88b4-e6e808e74937)
 
-#### 가져온 키를 기준으로 ncp-iam-authenticator 와 동일한 경로에 configure 파일 생성
+#### 가져온 키를 기준으로 아래래 경로에 configure 파일 생성
 - 이때 ACCESSKEYACCESSKEYAC 와 SECRETKEYSECRETKEYSECRETKEYSECRETKEYSECR는 위 API로 대체 하여 생성
 ```
 sudo mkdir /$home/.ncloud
@@ -74,8 +74,9 @@ ncloud_api_url = https://ncloud.apigw.ntruss.com
 ncloud_access_key_id = ACCESSKEYACCESSKEYAC
 ncloud_secret_access_key = SECRETKEYSECRETKEYSECRETKEYSECRETKEYSECR
 ncloud_api_url = https://ncloud.apigw.ntruss.com" | sudo tee cd ~/.ncloud/configure
-![image](https://github.com/clabi-lab/kubernetes/assets/142856874/5f467aa6-6f6a-46ef-b4f6-ef8e9efd8b18)
 ```
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/5f467aa6-6f6a-46ef-b4f6-ef8e9efd8b18)
+
 
 
 
