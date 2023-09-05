@@ -19,8 +19,8 @@
 #### 레포지터리 설정
  - APT에서 HTTPS를 이용할 수 있도록 APT 패키지 인덱스 업데이트 및 패키지 설치
 ```
-sudo apt-get update<br>
-sudo apt-get install ca-certificates curl gnupg<br>
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
 ```
 
 #### 도커 공식 GPG key 추가:
