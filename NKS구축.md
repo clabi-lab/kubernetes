@@ -64,7 +64,7 @@ sudo apt-get install -y kubectl
 #### 가져온 키를 기준으로 아래래 경로에 configure 파일 생성
 - 이때 ACCESSKEYACCESSKEYAC 와 SECRETKEYSECRETKEYSECRETKEYSECRETKEYSECR는 위 API로 대체 하여 생성
 ```
-sudo mkdir /$home/.ncloud
+sudo mkdir /$HOME/.ncloud
 echo "[DEFAULT]
 ncloud_access_key_id = ACCESSKEYACCESSKEYAC
 ncloud_secret_access_key = SECRETKEYSECRETKEYSECRETKEYSECRETKEYSECR
