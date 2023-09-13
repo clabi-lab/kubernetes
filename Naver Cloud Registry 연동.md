@@ -20,7 +20,7 @@
  - APT에서 HTTPS를 이용할 수 있도록 APT 패키지 인덱스 업데이트 및 패키지 설치
 ```
 sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg
+sudo apt-get -y install ca-certificates curl gnupg
 ```
 
 #### 도커 공식 GPG key 추가:
@@ -50,7 +50,7 @@ sudo apt-get update
 
 ##### 최신 버전 설치 시
 ```
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo systemctl enable docker
 sudo systemctl enable containerd
 sudo systemctl start docker
