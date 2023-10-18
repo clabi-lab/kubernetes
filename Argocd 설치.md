@@ -21,3 +21,16 @@ argocd account update-password #argocd cli 사용 password 변경
 
 ```
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/2bfd68f6-e683-420e-b2b1-9e27c1a5a78e)
+
+# argocd 환경 설정
+## argocd 파드를 노드포트로 변경
+```
+kubectl patch -n argocd svc argocd-server -p '{"spec": {"type": "NodePort"}}'
+```
+
+## argocd ALB ingress controller 설치
+```
+kubectl apply -f https://raw.githubusercontent.com/NaverCloudPlatform/nks-alb-ingress-controller/main/docs/install/pub/install.yaml
+```
+
+
