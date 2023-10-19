@@ -50,5 +50,70 @@ sudo certbot certonly -d "*.sample.com" --manual --preferred-challenge dns
 
 
 # argocd 환경 설정
-## 가
+## TLS 해제
+```
+kubectl edit cm argocd-cmd-params-cm -n argocd
+```
+- VI 에디터에서 data: server.insecure: "true" 항목 추가
+```
+apiVersion: v1
+data:
+  server.insecure: "true"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-cmd-params-cm","app.kubernetes.io/part-of":"argocd"},"name":"argocd-cmd-params-cm","namespace":"argocd"}}
+  creationTimestamp: "2023-09-15T06:36:22Z"
+  labels:
+    app.kubernetes.io/name: argocd-cmd-params-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cmd-params-cm
+  namespace: argocd
+  resourceVersion: "<리소스번호>"
+  uid: <uid 번호>
+```
+
+## ingress 생성
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80},{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-certificate-no: "인증서번호"
+    alb.ingress.kubernetes.io/actions.ssl-redirect: |
+      {"type":"redirection","redirection":{"port": "443","protocol":"HTTPS","statusCode":301}}
+  labels:
+    app: argocd-alb-ingress
+  name: argocd-alb-ingress
+  namespace: argocd
+spec:
+  ingressClassName: alb
+  defaultBackend:
+    service:
+      name: argocd-server
+      port:
+        number: 80
+  rules:
+  - http:
+      paths:
+      - path: /*
+        pathType: Prefix
+        backend:
+          service:
+            name: ssl-redirect
+            port:
+              name: use-annotation
+      - path: /*
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80
+```
+
+# DNS 등록
+- LB 주소로 CNAME 등록
 
