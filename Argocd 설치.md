@@ -29,11 +29,18 @@ argocd account update-password #argocd cli 사용 password 변경
 ![image](https://github.com/clabi-lab/kubernetes/assets/142856874/c95c1048-4e91-474f-ac08-a388c1db6ac3)
 
 ## 인증서 생성
+
+
 ```
-snap install --classic certbot
-certbot --standalone -d [위에서 생성한 url] certonly
+sudo apt-get update
+sudo apt-get install certbot
+sudo certbot certonly -d "*.sample.com" --manual --preferred-challenge dns
 ```
-![image](https://github.com/clabi-lab/kubernetes/assets/142856874/f2e82727-3727-4db0-a782-bd4a8edb8c6f)
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/9980e9f9-4fb5-4a5c-a479-bb8ad70652d3)
+- 위 certbot에서 생성된 acme challenge를 DNS 서버에 TXT로 입력
+- https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.sample.com. 에서 TXT로 위 값이 조회 될 때까지 대기 (약5분 이내)
+![image](https://github.com/clabi-lab/kubernetes/assets/142856874/ee761a0f-ff6f-48b0-8d27-303709799f00)
+
 
 ## 인증서 Ncloud에 등록
 - private.pem -> private Key
@@ -43,49 +50,5 @@ certbot --standalone -d [위에서 생성한 url] certonly
 
 
 # argocd 환경 설정
-## argocd 파드를 노드포트로 변경
-```
-kubectl patch -n argocd svc argocd-server -p '{"spec": {"type": "NodePort"}}'
-```
-
-## argocd ALB ingress controller 설치
-```
-kubectl apply -f https://raw.githubusercontent.com/NaverCloudPlatform/nks-alb-ingress-controller/main/docs/install/pub/install.yaml
-```
-
-## argocd-ingress.yaml 생성 및 적용
-```
-echo "apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: argocd-alb-ingress
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80},{"HTTPS":443}]'
-	alb.ingress.kubernetes.io/backend-protocol: HTTPS
-    alb.ingress.kubernetes.io/ssl-certificate-no: "8374"
-    alb.ingress.kubernetes.io/actions.ssl-redirect: |
-      {"type":"redirection","redirection":{"port": "443","protocol":"HTTPS","statusCode":301}}
-  labels:
-    app: argocd-alb-ingress
-  name: argocd-alb-ingress
-spec:
-  backend:
-    serviceName: argocd-server
-    servicePort: 80
-  rules:
-    - http:
-        paths:
-          - backend:
-              serviceName: ssl-redirect
-              servicePort: use-annotation
-    - host: argocd.clabitest.store
-      http:
-        paths:
-          - backend:
-              serviceName: argocd-server
-              servicePort: 443" | sudo tee ./argocd-ingress.yaml
-```
-
-
+## 가
 
