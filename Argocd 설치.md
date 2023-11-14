@@ -22,6 +22,7 @@ kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 kubectl exec -it -n argocd deployment/argocd-server -- /bin/bash #Argocd 파드 접속
 #Argocd pod 내에서
+argocd login argocd-server
 argocd account update-password #argocd cli 사용 password 변경
 
 ```
