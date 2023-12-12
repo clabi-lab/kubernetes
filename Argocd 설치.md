@@ -60,6 +60,11 @@ sudo certbot certonly -d "*.sample.com" --manual --preferred-challenge dns
 ```
 kubectl edit cm argocd-cmd-params-cm -n argocd
 ```
+## 서비스 NodePort 로 변경
+```
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+```
+
 - VI 에디터에서 data: server.insecure: "true" 항목 추가
 ```
 apiVersion: v1
