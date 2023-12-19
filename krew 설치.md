@@ -1,3 +1,6 @@
+# 쿠버네티스 플러그인 매니져 KREW 설치
+## 리눅스에서 아래 명령 실행
+```
 (
   set -x; cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
@@ -7,3 +10,8 @@
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
 )
+```
+## 환경변수 등록
+```
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+```
